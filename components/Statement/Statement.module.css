@@ -1,0 +1,26 @@
+.sec {
+  position: relative;
+  padding: clamp(80px, 14vh, 170px) 0;
+  background: var(--bg);
+}
+.statement {
+  font-family: var(--heading);
+  font-weight: var(--heading-weight);
+  font-size: clamp(1.6rem, 3.4vw, 2.8rem);
+  line-height: 1.22;
+  letter-spacing: -0.027em;
+  max-width: 24ch;
+  text-wrap: pretty;
+}
+.w { color: rgba(237, 237, 238, 0.38); transition: color 0.4s var(--ease); }
+.lit { color: #fff; }
+
+@media (max-width: 980px) {
+  .sec {
+    padding-top: clamp(44px, 7vh, 72px);
+    padding-bottom: clamp(32px, 5vh, 52px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .w { color: #fff; }
+}

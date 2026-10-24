@@ -1,0 +1,43 @@
+/* Thin geometric caps; the parent sets --mark-size (cap height driver). */
+.mark {
+  --mark-size: 17px;
+  --mark-track: 0.34em;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--mark-size);
+  font-family: var(--chip);
+  font-weight: 300;
+  font-size: var(--mark-size);
+  line-height: 1;
+  letter-spacing: var(--mark-track);
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+.first {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  transition: color 0.42s var(--ease) 0.04s;
+}
+.tile {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0.36em;
+  width: 2.05em;
+  height: 1.45em;
+  border-radius: 4px;
+  background: #ededee;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  pointer-events: none;
+  transition: opacity 0.34s var(--ease) 0.04s, transform 0.48s var(--ease-out) 0.02s;
+}
+.restTrack {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 12em;
+  transition: max-width 0.48s var(--ease-out), opacity 0.42s var(--ease);
+}
+.rest { display: inline-block; }

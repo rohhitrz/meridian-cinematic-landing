@@ -1,0 +1,32 @@
+{
+  "name": "meridian-study",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "render:media": "node scripts/render-stills.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "next": "^15.5.28",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@types/three": "^0.170.0",
+    "playwright-core": "^1.48.2",
+    "sharp": "^0.35.5",
+    "typescript": "^5.6.3"
+  },
+  "overrides": {
+    "postcss": "^8.5.31"
+  }
+}

@@ -1,0 +1,111 @@
+.block { position: relative; padding: clamp(80px, 13vh, 170px) 0 clamp(28px, 4vh, 52px); background: var(--bg); }
+.head { margin-bottom: clamp(10px, 1.6vh, 24px); }
+.head :global(.h2) { max-width: 18ch; }
+.shell { min-height: 300vh; }
+.sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+.media { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; container-type: size; }
+.overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+
+.cap { position: absolute; margin: 0; }
+.capGf { left: 17.3%; top: 15.7%; }
+.capTf { left: 11.6%; top: 9.6%; }
+.capN {
+  display: block;
+  font-family: var(--heading);
+  font-weight: var(--heading-weight);
+  font-size: 2.8cqw;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.7cqw);
+  transition: opacity 0.5s ease, transform 0.6s var(--ease-out);
+}
+.capL {
+  display: block;
+  margin-top: 0.5cqw;
+  font-size: 1.05cqw;
+  letter-spacing: 0.02em;
+  color: var(--text-2);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.7cqw);
+  transition: opacity 0.5s ease 0.06s, transform 0.6s var(--ease-out) 0.06s;
+}
+/* dashed leader that draws downward on entrance */
+.capLine {
+  position: absolute;
+  left: 1px;
+  top: 100%;
+  margin-top: 0.8cqh;
+  width: 1px;
+  background-image: repeating-linear-gradient(to bottom, rgba(214, 222, 233, 0.75) 0 5px, transparent 5px 11px);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.7s var(--ease-out) 0.15s;
+}
+.capGf .capLine { height: 15cqh; }
+.capTf .capLine { height: 21cqh; }
+.in .capN, .in .capL { opacity: 1; transform: none; }
+.in .capLine { transform: scaleY(1); }
+.snap .capN, .snap .capL, .snap .capLine { transition: none; }
+
+.compare { position: absolute; inset: 0; }
+.stat { position: absolute; bottom: 8%; display: flex; flex-direction: column; }
+.statHi { left: 61.7%; }
+.statUs { left: 84.5%; }
+.statL {
+  font-size: 1.05cqw;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--text-2);
+  max-width: 13cqw;
+  opacity: 0;
+  transform: translateY(0.8cqw);
+  transition: opacity 0.5s ease, transform 0.6s var(--ease-out);
+}
+.statN {
+  margin-top: 0.5cqw;
+  font-family: var(--heading);
+  font-weight: var(--heading-weight);
+  font-size: 4.2cqw;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.8cqw);
+  transition: opacity 0.5s ease 0.08s, transform 0.6s var(--ease-out) 0.08s;
+}
+.statU { font-size: 0.5em; color: var(--text-2); }
+.div {
+  position: absolute;
+  left: 81%;
+  bottom: 8%;
+  width: 1px;
+  height: 12%;
+  background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 0 5px, transparent 5px 11px);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.7s var(--ease-out) 0.12s;
+}
+.compare.in .statL, .compare.in .statN { opacity: 1; transform: none; }
+.compare.in .div { transform: scaleY(1); }
+
+@media (max-width: 560px) {
+  .block { padding-top: clamp(40px, 6vh, 64px); padding-bottom: clamp(40px, 6vh, 64px); }
+  .head { margin-bottom: clamp(30px, 5vh, 46px); }
+  .shell { min-height: 0; }
+  .sticky { position: static; height: auto; display: block; }
+  .capN { font-size: 4.6cqw; }
+  .capL { font-size: 2.4cqw; }
+  .statN { font-size: 5.6cqw; }
+  .statHi { left: 8%; }
+  .statUs { left: 52%; }
+  .div { left: 47%; }
+  .statL { font-size: 2.4cqw; max-width: 42cqw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capN, .capL, .statL, .statN, .capLine, .div { transition: opacity 0.25s linear !important; transform: none !important; }
+}

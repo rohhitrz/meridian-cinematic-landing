@@ -1,0 +1,22 @@
+# dependencies & build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# env / secrets (commit .env.example only)
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.log
+
+# local-only research notes (not part of the project)
+docs/reference/
+docs/reference-analysis.md
+docs/remaining-differences.md
+docs/implementation-plan.md
+docs/animations-and-decisions.md
